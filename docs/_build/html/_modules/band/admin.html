@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>band.admin &mdash; Django Captsone Project 00.00.01 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Django Captsone Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">band</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Django Captsone Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">band.admin</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for band.admin</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.utils.html</span> <span class="kn">import</span> <span class="n">format_html</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Band</span>
+
+<div class="viewcode-block" id="BandAdmin"><a class="viewcode-back" href="../../band.html#band.admin.BandAdmin">[docs]</a><span class="k">class</span> <span class="nc">BandAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Customizes the Django admin interface for the Band model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;date_formed&#39;</span><span class="p">,</span> <span class="s1">&#39;genre&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;image_tag&#39;</span><span class="p">)</span>
+    <span class="n">readonly_fields</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;image_tag&#39;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="BandAdmin.image_tag"><a class="viewcode-back" href="../../band.html#band.admin.BandAdmin.image_tag">[docs]</a>    <span class="k">def</span> <span class="nf">image_tag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns an HTML image tag with the preview of the image field.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        obj: Band object</span>
+<span class="sd">            The object containing the image to preview.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        str:</span>
+<span class="sd">            The HTML code for the image tag.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">format_html</span><span class="p">(</span><span class="s1">&#39;&lt;img src=&quot;</span><span class="si">{}</span><span class="s1">&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">url</span><span class="p">)</span> <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">image</span> <span class="k">else</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span></div>
+
+    <span class="n">image_tag</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="s1">&#39;Image Preview&#39;</span></div>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Band</span><span class="p">,</span> <span class="n">BandAdmin</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Josh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

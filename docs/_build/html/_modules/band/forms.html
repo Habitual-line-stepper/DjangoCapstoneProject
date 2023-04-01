@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>band.forms &mdash; Django Captsone Project 00.00.01 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Django Captsone Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">band</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Django Captsone Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">band.forms</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for band.forms</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Band</span>
+
+<div class="viewcode-block" id="BandForm"><a class="viewcode-back" href="../../band.html#band.forms.BandForm">[docs]</a><span class="k">class</span> <span class="nc">BandForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A form that is used to create and update Band objects in the database.</span>
+
+<span class="sd">    This form is a ModelForm, which means that it is automatically generated</span>
+<span class="sd">    from the Band model. The `Meta` class defines the fields that are included</span>
+<span class="sd">    in the form and specifies the widgets that are used to render the form</span>
+<span class="sd">    fields in the HTML template.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        Meta (class): A class that defines metadata for the form, including</span>
+<span class="sd">            the model that the form is based on, the fields that are included</span>
+<span class="sd">            in the form, and the widgets that are used to render the form</span>
+<span class="sd">            fields in the HTML template.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BandForm.Meta"><a class="viewcode-back" href="../../band.html#band.forms.BandForm.Meta">[docs]</a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Metadata for the `BandForm` class.</span>
+
+<span class="sd">        The `Meta` class defines the model that the form is based on, the fields</span>
+<span class="sd">        that are included in the form, and the widgets that are used to render</span>
+<span class="sd">        the form fields in the HTML template.</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            model (class): The model that the form is based on.</span>
+<span class="sd">            fields (list): A list of fields that are included in the form.</span>
+<span class="sd">            widgets (dict): A dictionary that maps field names to widget objects.</span>
+<span class="sd">                Each widget object specifies how the corresponding form field</span>
+<span class="sd">                should be rendered in the HTML template.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Band</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;date_formed&#39;</span><span class="p">,</span> <span class="s1">&#39;genre&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">]</span>
+        <span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}),</span>
+            <span class="s1">&#39;date_formed&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">DateInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}),</span>
+            <span class="s1">&#39;genre&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}),</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">Textarea</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}),</span>
+            <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">ClearableFileInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control-file&#39;</span><span class="p">}),</span>
+        <span class="p">}</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Josh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
