@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Bands{% endblock %}
+
+{% block content %}
+    <ul>
+    {% for band in bands %}
+        <li>{{ band.name }}</li>
+		<li>{{ band.date_formed }}</li>
+		<li>{{ band.genre }}</li>
+		<li>{{ band.description}}</li>
+		{% if band.image %}
+			<img src="{{ band.image.url }}" alt="{{ band.name }}" width="150" height="150">
+		{% endif %}
+		<br>
+    {% endfor %}
+    </ul>
+{% endblock %}

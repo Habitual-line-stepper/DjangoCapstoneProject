@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Edit Band</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="band_select">Select a band to edit:</label>
+      <select class="form-control" id="band_select" name="band_select">
+        {% for band in bands %}
+          <option value="{{ band.pk }}" {% if band.pk == selected_band.pk %}selected{% endif %}>{{ band.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    {{ form.as_p }}
+    <input type="hidden" name="selected_band_pk" value="{{ selected_band.pk }}">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+  </form>
+{% endblock %}

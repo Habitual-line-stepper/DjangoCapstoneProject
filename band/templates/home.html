@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Welcome to the Band App!</h1>
+	<div class="d-flex justify-content-center">
+		{% load static %}
+		<img id="picture"  src="{% static 'Lorna Shore.jpg' %}" class="rounded mx-2 img-fluid w-100 h-100" alt="Lorna" style="object-fit: cover;">
+{% endblock %}
+
