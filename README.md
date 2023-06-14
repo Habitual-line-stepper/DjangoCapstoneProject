@@ -6,7 +6,6 @@
 - [Running with Docker](#running-with-docker)
 - [Usage](#usage)
 - [Configuration](#configuration)
-- [Special thanks](#special-thanks)
 
 # Description: 
 The bands app is a Django web application designed for metal music enthusiasts to manage their favorite bands. With features like user authentication, registration, and CRUD (Create, Read, Update, Delete) functionality, users can easily add and edit bands to their personal collection. The app provides a simple and intuitive interface for users to manage their metal band preferences and display them in a comprehensive list. Whether you're a fan of classic heavy metal, death metal, or black metal, the bands app is a great tool for organizing and keeping track of your favorite metal bands.
@@ -63,8 +62,4 @@ The following environment variables need to be set for the application to run:
 
 You can either set these environment variables manually or use a tool like direnv to automatically load them from a .envrc file.  
 
-# Special thanks:
-- ME! 
-- Serge, Dana and all the other mentors who have helped me
-- My 'less than useful' friends (you know who you are :D)
 
